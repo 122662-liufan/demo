@@ -11,14 +11,19 @@
   </div>
 </template>
 <script>
+import { createNamespacedHelpers } from 'vuex'
+const todo_store = createNamespacedHelpers('todos')
 import { mapActions, mapState } from 'vuex'
 export default {
   computed: {
-    ...mapState(['todoa']),
+    // ...mapState(['todoa']),
+    ...todo_store.mapState(['todoa']),
   },
   methods: {
     //简化代码 同下面方法
-    ...mapActions(['getTodos']),
+    //  ...mapActions(['getTodos']),
+    // 子模块用法
+    ...todo_store.mapActions(['getTodos']),
     // loadTodos() {
     //   // 调用 getTodos
     //   this.$store.dispatch('getTodos')
